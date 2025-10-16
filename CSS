@@ -1,0 +1,255 @@
+/* 1. VARIÁVEIS E RESET */
+:root {
+  --bg: #f7f9fb;
+  --card: #ffffff;
+  --accent: #2b7ed6;
+  --accent-2: #0f5fa8;
+  --muted: #7b8a95;
+
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(20, 30, 40, 0.08);
+  --panel-w: 320px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  color: #12202a;
+  background: var(--bg);
+}
+
+/* ============================================================
+   2. LAYOUT PRINCIPAL
+   ============================================================ */
+
+.workspace {
+  display: flex;
+  gap: 20px;
+  padding: 10px 28px;
+}
+
+.notes {
+  padding: 12px 28px;
+  color: var(--muted);
+}
+
+/* ============================================================
+   3. CABEÇALHO SUPERIOR
+   ============================================================ */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  background: transparent;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 18px;
+  color: #0e1b26;
+}
+
+.upload-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Botão de upload */
+.upload-btn {
+  display: inline-block;
+  background: var(--card);
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  border: 1px solid rgba(15, 90, 138, 0.06);
+}
+
+.upload-btn input {
+  display: none;
+}
+
+/* Botão genérico de ícone (salvar, etc.) */
+.icon-btn {
+  background: var(--card);
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+/* ============================================================
+   4. ÁREA DO CANVAS
+   ============================================================ */
+
+.canvas-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.canvas-frame {
+  width: 100%;
+  max-width: 980px;
+  height: 600px;
+  background: linear-gradient(180deg, #fff, #fbfdff);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(10, 20, 30, 0.04);
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.placeholder {
+  position: absolute;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* ============================================================
+   5. BARRA DE FERRAMENTAS (BOTÕES DE FILTRO)
+   ============================================================ */
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.tool {
+  background: var(--card);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tool:hover {
+  transform: translateY(-1px);
+}
+
+.tool.active {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   6. PAINEL LATERAL (CONTROLES DE INTENSIDADE)
+   ============================================================ */
+
+.side-panel {
+  width: var(--panel-w);
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+}
+
+.side-panel.hidden {
+  display: none;
+}
+
+/* Cabeçalho do painel */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eef3f7;
+}
+
+.panel-header .close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Conteúdo do painel */
+.panel-content {
+  padding: 12px;
+  overflow-y: auto;
+}
+
+/* Rodapé com botões de ação */
+.panel-footer {
+  display: flex;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #eef3f7;
+  margin-top: auto;
+}
+
+/* Botões dentro do painel */
+.primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.secondary {
+  background: #f2f5f7;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Sliders */
+.control-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+/* ============================================================
+   7. RODAPÉ (OBSERVAÇÕES)
+   ============================================================ */
+
+.notes small {
+  font-size: 12px;
+  line-height: 1.4;
+}
