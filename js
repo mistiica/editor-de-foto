@@ -260,8 +260,3 @@ saveBtn.addEventListener('click', () => {
   link.click();
 });
 
-/* Prevenção: se o usuário fecha o painel, restaura original para evitar preview persistente */
-window.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape') closeAndResetPanel();
-});
-
