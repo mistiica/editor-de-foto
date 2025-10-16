@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mystic Editor/title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Filtros Lineares — Mini Editor</h1>
+    <div class="upload-wrap">
+      <label class="upload-btn">
+        ➕ Carregar
+        <input id="upload" type="file" accept="image/*" />
+      </label>
+      <button id="saveBtn" class="icon-btn">💾 Salvar</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="canvas-area">
+      <div class="canvas-frame">
+        <canvas id="canvas"></canvas>
+        <div id="placeholder" class="placeholder">Carregue uma imagem</div>
+      </div>
+
+      <div class="toolbar">
+        <button class="tool" id="brightnessBtn">💡 Brilho</button>
+        <button class="tool" id="darkenBtn">🌑 Escurecer</button>
+        <button class="tool" id="bwBtn">⚪ Preto & Branco</button>
+        <button class="tool" id="rotateBtn">🔄 Rotacionar</button>
+        <button class="tool" id="resetBtn">↩️ Reset</button>
+      </div>
+    </section>
+
+    <aside id="panel" class="side-panel hidden">
+      <header class="panel-header">
+        <span id="panelTitle">Controle</span>
+        <button id="closePanel" class="close">✖</button>
+      </header>
+
+      <div id="panelContent" class="panel-content">
+        <!-- Conteúdo dinâmico inserido por JS -->
+      </div>
+
+      <footer class="panel-footer">
+        <button id="applyBtn" class="primary">Aplicar</button>
+        <button id="cancelBtn" class="secondary">Cancelar</button>
+      </footer>
+    </aside>
+  </main>
+
+  <footer class="notes">
+    <small>
+    
+    </small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
