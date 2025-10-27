@@ -1,60 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mystic Editor/title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editor de Fotos - Álgebra Linear</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <h1>Filtros Lineares — Mini Editor</h1>
-    <div class="upload-wrap">
-      <label class="upload-btn"; 
-        <input id="upload" type="file" accept="image/*" />
-      </label>
-      <button id="saveBtn" class="icon-btn">💾 Salvar</button>
+  <div class="container">
+    <h1>Editor de Fotos 📸</h1>
+    <p class="subtitle">Trabalho de Álgebra Linear – Transformações Lineares</p>
+
+    <div class="upload-box">
+      <input type="file" id="upload" accept="image/*" />
     </div>
-  </header>
 
-  <main class="workspace">
-    <section class="canvas-area">
-      <div class="canvas-frame">
-        <canvas id="canvas"></canvas>
-        <div id="placeholder" class="placeholder">Carregue uma imagem</div>
-      </div>
+    <div class="editor">
+      <canvas id="canvas"></canvas>
+      <img id="placeholder" src="" alt="Pré-visualização" />
+    </div>
 
-      <div class="toolbar">
-        <button class="tool" id="brightnessBtn">💡 Brilho</button>
-        <button class="tool" id="darkenBtn">🌑 Escurecer</button>
-        <button class="tool" id="bwBtn">⚪ Preto & Branco</button>
-        <button class="tool" id="rotateBtn">🔄 Rotacionar</button>
-        <button class="tool" id="resetBtn">↩️ Reset</button>
-      </div>
-    </section>
+    <div class="buttons">
+      <button class="btn" id="brightness">Brilho</button>
+      <button class="btn" id="darken">Escurecer</button>
+      <button class="btn" id="grayscale">Preto e Branco</button>
+      <button class="btn" id="rotate">Rotação</button>
+      <button class="btn save" id="save">Salvar Imagem</button>
+    </div>
 
-    <aside id="panel" class="side-panel hidden">
-      <header class="panel-header">
-        <span id="panelTitle">Controle</span>
-        <button id="closePanel" class="close">✖</button>
-      </header>
-
-      <div id="panelContent" class="panel-content">
-      
-      </div>
-
-      <footer class="panel-footer">
-        <button id="applyBtn" class="primary">Aplicar</button>
-        <button id="cancelBtn" class="secondary">Cancelar</button>
-      </footer>
-    </aside>
-  </main>
-
-  <footer class="notes">
-    <small>
-    
-    </small>
-  </footer>
+    <div id="control-panel" class="control hidden">
+      <h3 id="control-title"></h3>
+      <input type="range" id="slider" min="0" max="2" step="0.01" value="1" />
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
